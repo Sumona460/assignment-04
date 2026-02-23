@@ -37,4 +37,42 @@ interviewBtn.addEventListener('click', function(){
     statusButton.innerText = 'INTERVIEW'
 });
 
+// rejectedBtn clicked
+
+rejectedBtn.addEventListener("click", function () {
+
+        if (card.dataset.status === "rejected") {
+            return;
+        }
+
+        if (card.dataset.status === "interview") {
+            interviewCount--;
+            interviewCountText.innerText = interviewCount;
+        }
+
+        card.dataset.status = "rejected";
+
+ rejectedCount++;
+ rejectedCountText.innerText = rejectedCount;
+
+     statusButton.innerText = "REJECTED";
+    });
+
+// card deleted 
+deleteIcon.addEventListener("click", function () {
+
+        if (card.dataset.status === "interview") {
+            interviewCount--;
+            interviewCountText.innerText = interviewCount;
+        }
+
+        if (card.dataset.status === "rejected") {
+            rejectedCount--;
+            rejectedCountText.innerText = rejectedCount;
+        }
+
+        card.remove();
+    });
+
+    
 }
