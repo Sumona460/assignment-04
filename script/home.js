@@ -1,7 +1,40 @@
- document.getElementById('btn-interview').addEventListener('click', function(){
-// console.log('clicked');
-const interviewClicked = document.getElementById('interview-number');
-const clickedNumber = interviewClicked.innerText;
-console.log(clickedNumber);
+// element select
 
+const allJobCards = document.querySelectorAll('.card');
+const interviewCountText = document.getElementById('interview-number');
+const rejectedCountText = document.getElementById('rejected-number');
+
+const allTabBtn = document.querySelector('.btn-primary');
+const interviewTabBtn = document.getElementById('btn-interview');
+const rejectedTabBtn = document.querySelectorAll('.btn-outline')[1];
+
+// count 
+let interviewCount = 0;
+let rejectedCount = 0;
+
+for (let i = 0; i < allJobCards.length; i++){
+    const card = allJobCards[i];
+
+    const interviewBtn = card.querySelector('.intBtn');
+     const rejectedBtn = card.querySelector(".rejBtn");
+    const deleteIcon = card.querySelector(".delIcon");
+    const statusButton = card.querySelector(".btn-active");
+
+    // interviewBtn clicked
+
+interviewBtn.addEventListener('click', function(){
+    if(card.dataset.status === 'interview'){
+        return;
+    }
+    if(card.dataset.status === 'rejected'){
+        rejectedCount--;
+        rejectedCountText.innerText = rejectedCount;
+    }
+    card.dataset.status = 'interview';
+    interviewCount++;
+    interviewCountText.innerText = interviewCount;
+
+    statusButton.innerText = 'INTERVIEW'
 });
+
+}
