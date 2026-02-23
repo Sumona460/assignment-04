@@ -15,4 +15,4 @@
  answer: If child element more the one or more, we dont have to use again and again event listner.
 
 5. What is the difference between preventDefault() and stopPropagation() methods?
-   Answer: using stopPropagation() methods the function will stoped.
+   Answer: using stopPropagation() methods the function will stopped.
