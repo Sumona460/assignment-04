@@ -50,11 +50,11 @@
    </div>
    <div class="space-y-5">
    
-    <div class="jobs-card">
+    <div class="jobs-card sm:grid sm:grid-cols-1 ">
         <div class="flex gap-2">
-        <button class="btn btn-primary w-[90px]">All</button>
-    <button id="btn-interview" class="btn btn-outline bg-base-100  border-[#E6E7E9] text-[#64748B]">Interview</button>
-    <button class="btn btn-outline bg-base-100 border-[#E6E7E9] text-[#64748B]">Rejected</button>
+        <button class="filter-btn btn btn-primary w-[90px]">All</button>
+    <button id="btn-interview" class="filter-btn btn btn-outline bg-base-100  border-[#E6E7E9] text-[#64748B]">Interview</button>
+    <button class="filter-btn btn btn-outline bg-base-100 border-[#E6E7E9] text-[#64748B]">Rejected</button>
     </div>
     
    </div>
@@ -222,10 +222,18 @@
     </div>
     </div>
 
+    <div id="no-jobs" class="hidden text-center pt-28 pb-28 space-y-4">
+  <div class="flex justify-center">
+    <img src="jobs.png" alt="">
+  </div>
+  <h2 class="text-2xl font-semibold">No jobs available</h2>
+  <p class="text-[#64748B]">
+    Check back soon for new job opportunities
+  </p>
+</div>
+
  </section>
 
-   
-  
  
 
  <script src="script/home.js"></script>

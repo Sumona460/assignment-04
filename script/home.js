@@ -74,5 +74,63 @@ deleteIcon.addEventListener("click", function () {
         card.remove();
     });
 
-    
-}
+    // all btn add event 
+    allTabBtn.addEventListener("click", function () {
+
+    for (let i = 0; i < allJobCards.length; i++) {
+        allJobCards[i].style.display = "block";
+    }
+
+});
+
+
+interviewTabBtn.addEventListener("click", function () {
+
+    for (let i = 0; i < allJobCards.length; i++) {
+
+        if (allJobCards[i].dataset.status === "interview") {
+            allJobCards[i].style.display = "block";
+        } else {
+            allJobCards[i].style.display = "none";
+        }
+    }
+
+});
+
+rejectedTabBtn.addEventListener("click", function () {
+
+    for (let i = 0; i < allJobCards.length; i++) {
+
+        if (allJobCards[i].dataset.status === "rejected") {
+            allJobCards[i].style.display = "block";
+        } else {
+            allJobCards[i].style.display = "none";
+        }
+    }
+
+});
+
+
+};
+
+// toggle button
+const buttons = document.querySelectorAll(".filter-btn");
+
+buttons.forEach(button => {
+  button.addEventListener("click", function () {
+
+    // all button reset 
+    buttons.forEach(btn => {
+      btn.classList.remove("btn-primary");
+      btn.classList.add("btn-outline");
+    });
+
+    // clicked button active
+    this.classList.remove("btn-outline");
+    this.classList.add("btn-primary");
+
+  });
+});
+
+
+
