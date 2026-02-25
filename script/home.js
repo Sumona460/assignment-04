@@ -13,6 +13,8 @@ const noJobsSection = document.getElementById("no-jobs");
 
 const filterButtons = document.querySelectorAll(".filter-btn");
 
+const totalNumber = document.getElementById('total-number');
+
 
 // COUNT VARIABLE
 
@@ -86,6 +88,9 @@ for (let i = 0; i < allJobCards.length; i++) {
         }
 
         card.remove();
+
+const remainingCards = document.querySelectorAll('.card').length;
+totalNumber.innerText = remainingCards;
 
         checkNoJobs();
     });
