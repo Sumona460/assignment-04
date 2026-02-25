@@ -8,10 +8,13 @@ const allTabBtn = document.querySelector('.btn-primary');
 const interviewTabBtn = document.getElementById('btn-interview');
 const rejectedTabBtn = document.querySelectorAll('.btn-outline')[1];
 
+const noJobsSection = document.getElementById("no-jobs");
+
 // count 
 let interviewCount = 0;
 let rejectedCount = 0;
 
+// card btn logic
 for (let i = 0; i < allJobCards.length; i++){
     const card = allJobCards[i];
 
@@ -72,14 +75,16 @@ deleteIcon.addEventListener("click", function () {
         }
 
         card.remove();
+        checkNoJobs(); 
     });
-
+}
     // all btn add event 
     allTabBtn.addEventListener("click", function () {
 
     for (let i = 0; i < allJobCards.length; i++) {
         allJobCards[i].style.display = "block";
     }
+    checkNoJobs();
 
 });
 
@@ -94,6 +99,7 @@ interviewTabBtn.addEventListener("click", function () {
             allJobCards[i].style.display = "none";
         }
     }
+    checkNoJobs();
 
 });
 
@@ -107,11 +113,11 @@ rejectedTabBtn.addEventListener("click", function () {
             allJobCards[i].style.display = "none";
         }
     }
-
+checkNoJobs();
 });
 
 
-};
+
 
 // toggle button
 const buttons = document.querySelectorAll(".filter-btn");
@@ -126,11 +132,33 @@ buttons.forEach(button => {
     });
 
     // clicked button active
-    this.classList.remove("btn-outline");
-    this.classList.add("btn-primary");
+   this.classList.remove("btn-outline");
+   this.classList.add("btn-primary");
 
   });
 });
+// empty state function
+function checkNoJobs() {
+
+    const noJobsSection = document.getElementById("no-jobs");
+    const cards = document.querySelectorAll(".card");
+
+    let visibleCards = 0;
+
+    for (let i = 0; i < cards.length; i++) {
+        if (cards[i].style.display !== "none") {
+            visibleCards++;
+        }
+    }
+
+    if (visibleCards === 0) {
+        noJobsSection.classList.remove("hidden");
+    } else {
+        noJobsSection.classList.add("hidden");
+    }
+};
+
+
 
 
 
